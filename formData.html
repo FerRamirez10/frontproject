@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styleFormData.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <form id="formulario-pedido">
+    <label for="nombre">Nombre:</label>
+    <input placeholder="&#128100" type="text" id="nombre" name="nombre" required /><br /><br />
+
+    <label for="telefono">Teléfono:</label>
+    <input placeholder="&#9993 +57 3xx xxxxxxxxx" type="text" id="telefono" name="telefono" required /><br /><br />
+
+    <label for="email">Email:</label>
+    <input placeholder="&#128222" type="text" id="email" name="email" required /><br /><br />
+
+    <label for="direccion">Dirección:</label>
+    <input placeholder="&#8962" type="text" id="direccion" name="direccion" required /><br /><br />
+    <div id="arrayZone"></div>
+    <input class="boton-comprar" type="submit" value="Enviar" />
+  </form>
+  <script src="scriptFormData.js"></script>
+
+  <div id="productos_seccion">
+    <h2>Detalles del Pedido</h2>
+    <table id="productos-table">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se llenarán los detalles de los productos dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

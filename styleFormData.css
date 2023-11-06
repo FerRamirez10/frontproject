@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+    min-width: 45vw;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.boton-comprar {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.boton-comprar:hover {
+    background-color: #00a300;
+}
+
+#productos_seccion {
+    margin: 20px 2px 0 2px;
+    padding: 20px;
+    background-color: rgba(255, 102, 0,0.9); /* Rojo con 50% de transparencia */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+#productos-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#productos-table th,
+#productos-table td {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#productos-table th {
+    text-align: left;
+    font-weight: bold;
+}
+
+@media (max-width: 320px) {
+    body {
+        flex-direction: column;
+        background-color: #ff6600;
+    }
+    form{
+        width: 80vw;
+    }
+    #productos_seccion {
+        width: 80vw;
+        background-color: white;
+
+    }
+}
