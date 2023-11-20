@@ -26,20 +26,19 @@
 </div>
 
 <div id="filter-container" style="display: none;">
-  <h3>Filtrar</h3>
-  <label for="orderStatusFilter">Tipo de Pedido:</label>
-  <select id="orderStatusFilter">
-    <option value="">Todos</option>
+  <label for="client-filter">Filtrar por Cliente:</label>
+  <input type="text" id="client-filter" placeholder="Nombre del Cliente">
+
+  <label for="status-filter">Filtrar por Estado:</label>
+  <select id="status-filter">
+    <option value="todos">Todos</option>
     <option value="pendiente">Pendiente</option>
     <option value="atendido">Atendido</option>
   </select>
-  <br>
-  <label for="customerNameFilter">Cliente:</label>
-  <input type="text" id="customerNameFilter">
-  <br>
-  <button type="button" id="applyFilterButton">Aplicar Filtros</button>
-  <button type="button" id="clearFilterButton">Limpiar Filtros</button>
+
+  <button type="button" id="apply-filter-button">Aplicar Filtros</button>
 </div>
+<button type="button" id="logout-button"  style="display: none;">Cerrar Sesión</button>
 
 <script src="scriptLogin.js"></script>
 </body>

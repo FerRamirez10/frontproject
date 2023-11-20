@@ -33,7 +33,7 @@ document.getElementById("formulario-pedido").addEventListener("submit", function
     };
     formData.productos = carritoProductos;
     console.log(formData);
-    fetch("http://127.0.0.1:8000/api/pedidos", {
+    fetch("https://projectpnthd.onrender.com/api/pedidos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
