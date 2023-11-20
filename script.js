@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(".");
     if (!menuCargado) {
       try {
-        const response = await fetch("https://projectpnthd.onrender.com/api/platos");
+        const response = await fetch("http://127.0.0.1:8000/api/platos");
         if (!response.ok) {
           throw new Error("No se pudo obtener la lista de platos.");
         }

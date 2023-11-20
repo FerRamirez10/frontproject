@@ -18,26 +18,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document
-  .getElementById("formulario-pedido")
-  .addEventListener("submit", function (e) {
+document.getElementById("formulario-pedido").addEventListener("submit", function (e) {    
     e.preventDefault();
-    const carritoProductos = JSON.parse(
-      localStorage.getItem("carritoProductos")
-    );
-    const nombre = document.getElementById("nombre").value;
-    const telefono = document.getElementById("telefono").value;
-    const email = document.getElementById("email").value;
-    const direccion = document.getElementById("direccion").value;
+    const carritoProductos = JSON.parse(localStorage.getItem("carritoProductos"));
+    const nombre_cliente = document.getElementById("nombre").value;
+    const telefono_cliente = document.getElementById("telefono").value;
+    const correo_cliente = document.getElementById("email").value;
+    const direccion_envio = document.getElementById("direccion").value;
     const formData = {
-      nombre,
-      email,
-      telefono,
-      direccion,
+      nombre_cliente,
+      correo_cliente,
+      telefono_cliente,
+      direccion_envio,
     };
     formData.productos = carritoProductos;
-
-    fetch("https://projectpnthd.onrender.com/api/pedidos", {
+    console.log(formData);
+    fetch("http://127.0.0.1:8000/api/pedidos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,13 +41,29 @@ document
       body: JSON.stringify(formData),
     })
       .then((response) => {
-        console.log(response); // Agrega esta línea para ver la respuesta completa
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         return response.json();
       })
       .then((data) => {
+        document.getElementById("mensaje-confirmacion").innerHTML =
+          "¡Pedido registrado exitosamente!";
+        // Muestra el modal
+        document.getElementById("myModal").style.display = "block";
+
+        // Configura un temporizador para cerrar el modal y redirigir después de 2 segundos
+        setTimeout(() => {
+          document.getElementById("myModal").style.display = "none";
+          window.location.href = "index.html";
+        }, 2000);
         console.log(data);
       })
       .catch((error) => {
-        console.error("Error al enviar la solicitud:", error);
+        document.getElementById("mensaje-confirmacion").innerHTML =
+          "Hubo un problema al registrar el pedido. Por favor, inténtalo de nuevo.";
+        // Muestra el modal
+        document.getElementById("myModal").style.display = "block";
+        console.error("Error al enviar la solicitud:", error.message);
       });
   });
